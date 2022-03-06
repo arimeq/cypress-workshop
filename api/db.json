@@ -1,0 +1,11 @@
+{
+  "todos": [
+    {
+      "title": "O, jaki maluszek!",
+      "body": "Za chwilę to miejsce będzie dużo większe.",
+      "dueDate": "2022-03-06T02:34:00.000Z",
+      "done": "true",
+      "id": 1
+    }
+  ]
+}
