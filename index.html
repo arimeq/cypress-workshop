@@ -9,6 +9,7 @@
       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="./src/styles.css">
   </head>
 
   <body class="m-3 d-flex justify-content-center">
@@ -16,15 +17,15 @@
       <h1 class="mb-5">TODO list <button id="button-add" class="btn btn-primary">+</button></h1>
       <form id="create-todo" class="d-none mb-5" style="width:350px">
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="todoTitle">
+          <input type="text" class="form-control" id="todoTitle" required autocomplete="off">
           <label for="todoTitle" class="form-label">Title</label>
         </div>
         <div class="form-floating mb-3">
-          <textarea class="form-control" id="todoText"></textarea>
+          <textarea class="form-control" id="todoText" required></textarea>
           <label for="todoText" class="form-label">Text</label>
         </div>
         <div class="form-floating mb-3">
-          <input type="datetime-local" class="form-control" id="todoDueDate">
+          <input type="datetime-local" class="form-control" id="todoDueDate" required>
           <label for="todoDueDate" class="form-label">Due date</label>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>

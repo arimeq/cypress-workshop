@@ -1,27 +1,30 @@
-import { updateTodo, getTodos } from "./api";
+import { updateTodo, getTodos, deleteTodo } from "./api";
 
+const app = document.querySelector('#app');
 const notDone = document.querySelector('#not-done');
 const done = document.querySelector('#done');
 
 export function createTodo(todo) {
-  return createStructure(todo.id, todo.title, todo.body, todo.dueDate, 'false');
+  notDone.appendChild(createStructure(todo.id, todo.title, todo.body, todo.dueDate, 'false'));
 }
 
 export function createDone(todo) {
-  return createStructure(todo.id, todo.title, todo.body, todo.dueDate, 'true');
+  done.appendChild(createStructure(todo.id, todo.title, todo.body, todo.dueDate, 'true'));
 }
 
 export function renderTodos() {
+  app.classList.add('loading');
   getTodos().then((todos) => {
     done.innerHTML = '';
     notDone.innerHTML = '';
     todos.forEach((todo) => {
       if (todo.done === "false") {
-        notDone.appendChild(createTodo(todo));
+        createTodo(todo);
       } else {
-        done.appendChild(createDone(todo));
+        createDone(todo);
       }
     });
+    app.classList.remove('loading');
   });
 }
 
@@ -30,6 +33,7 @@ function createStructure(id, name, body, dueDate, done) {
   container.innerHTML = `
   <div class="d-inline-block card mb-2">
     <div class="card-body">
+      <button type="button" class="btn-close position-absolute top-0 end-0" aria-label="Close"></button>
       <h5 class="card-title">${name}</h5>
       <h6 class="card-subtitle mb-2 text-muted">
         Due date: ${getDate(dueDate)},
@@ -40,8 +44,16 @@ function createStructure(id, name, body, dueDate, done) {
   </div>
   `;
   const doneLink = container.querySelector('.card-link');
+  const closeBtn = container.querySelector('.btn-close');
   doneLink.addEventListener('click', function() {
+    app.classList.add('loading');
     updateTodo(id, { done: flip(done) }).then(() => {
+      renderTodos();
+    });
+  });
+  closeBtn.addEventListener('click', function() {
+    app.classList.add('loading');
+    deleteTodo(id).then(() => {
       renderTodos();
     });
   });
