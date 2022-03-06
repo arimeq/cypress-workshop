@@ -1,11 +1,32 @@
 {
   "todos": [
     {
-      "title": "O, jaki maluszek!",
-      "body": "Za chwilę to miejsce będzie dużo większe.",
-      "dueDate": "2022-03-06T02:34:00.000Z",
+      "id": "1",
+      "title": "Sample TODO",
+      "body": "This is a sample TODO item",
+      "done": "false",
+      "dueDate": "2022-03-06T10:00:00.000Z"
+    },
+    {
+      "id": "2",
+      "title": "Sample TODO",
+      "body": "This is a sample TODO item",
+      "done": "false",
+      "dueDate": "2022-03-06T10:00:00.000Z"
+    },
+    {
+      "id": "3",
+      "title": "Sample TODO",
+      "body": "This is a sample TODO item",
       "done": "true",
-      "id": 1
+      "dueDate": "2022-03-06T10:00:00.000Z"
+    },
+    {
+      "id": "4",
+      "title": "Sample TODO",
+      "body": "This is a sample TODO item",
+      "done": "true",
+      "dueDate": "2022-03-06T10:00:00.000Z"
     }
   ]
 }
