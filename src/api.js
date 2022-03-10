@@ -1,4 +1,4 @@
-const API_URL = `//${location.hostname}:3000`;
+const API_URL = `//${location.hostname}:1234/api`;
 
 export async function getTodos() {
   const req = await fetch(`${API_URL}/todos`);
