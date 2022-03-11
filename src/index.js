@@ -1,3 +1,4 @@
+import './styles.css';
 import { addTodo } from './api';
 import { createTodo, renderTodos } from './dom';
 
