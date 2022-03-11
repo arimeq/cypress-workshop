@@ -30,18 +30,20 @@ export function renderTodos() {
 
 function createStructure(id, name, body, dueDate, done) {
   const container = document.createElement('div');
+  container.classList.add('d-inline-block', 'card', 'mb-2');
   container.innerHTML = `
-  <div class="d-inline-block card mb-2">
     <div class="card-body">
-      <button type="button" class="btn-close position-absolute top-0 end-0" aria-label="Close"></button>
-      <h5 class="card-title">${name}</h5>
+      <button
+        type="button" class="btn-close position-absolute top-0 end-0"
+        aria-label="Close" data-test-id="button-close">
+      </button>
+      <h5 class="card-title" data-test-id="todo-title">${name}</h5>
       <h6 class="card-subtitle mb-2 text-muted">
         Due date: ${getDate(dueDate)},
-        <a href="#" class="card-link">${(done === 'true') ? '' : 'not '}done</a>
+        <a href="#" class="card-link" data-test-id="todo-status-link">${(done === 'true') ? '' : 'not '}done</a>
       </h6>
-      <p class="card-text">${body}</p>
+      <p class="card-text" data-test-id="todo-body">${body}</p>
     </div>
-  </div>
   `;
   const doneLink = container.querySelector('.card-link');
   const closeBtn = container.querySelector('.btn-close');
